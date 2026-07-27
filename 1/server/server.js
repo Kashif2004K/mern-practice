@@ -12,13 +12,13 @@ dotenv.config();
 console.log(process.env.MONGO_URI);
 
 const app = express();
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
 app.use("/api/products", router);
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   connectDB();
-  console.log(`server is running on port ${port}`);
+  console.log(`server is running on port ${PORT}`);
 });
